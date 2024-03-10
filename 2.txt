@@ -1,7 +1,7 @@
 Docker_Image_and_Tag_Name=""
 REPOSITORY=""
 PROJECT_ID=""
-$ZONE=""
+ZONE=""
 
 
 
@@ -66,6 +66,7 @@ Task 4:-
 
 sed -i s#IMAGE_HERE#$ZONE-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$Docker_Image_and_Tag_Name#g k8s/deployment.yaml
 
-gcloud container clusters get-credentials valkyrie-dev --$zone us-east1-d
+gcloud container clusters get-credentials valkyrie-dev --zone $ZONE-d
 kubectl create -f k8s/deployment.yaml
 kubectl create -f k8s/service.yaml
+
